@@ -1,4 +1,5 @@
-MedCentral 🏥
+# MedCentral 🏥
+
 Sistema de Agendamento e Gerenciamento de Consultas Médicas
 Projeto desenvolvido como parte do Projeto Integrador V do curso de Tecnologia da Faculdade de Tecnologia Padre Danilo de Oliveira Ohl - FATEC Barueri.
 
