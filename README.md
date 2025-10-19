@@ -46,7 +46,6 @@ Mobile: Layout em coluna única, navegação simplificada
 
 👨‍💻 Autor
 Alysson Vitor (v1tzzzz)
-Desenvolvido com o auxílio de Claude Sonnet 4.5 para otimização de código e boas práticas.
 
 🔗 Links
 
