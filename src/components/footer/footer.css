@@ -28,16 +28,34 @@
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
-  transition: color 0.2s;
+  transition: all 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 6px;
 }
 
 .github-link:hover {
-  color: #667eea;
+  color: var(--primary-blue);
+  background: rgba(37, 151, 254, 0.05);
+  transform: translateY(-2px);
+}
+
+.github-link svg {
+  transition: transform 0.3s ease;
+}
+
+.github-link:hover svg {
+  transform: scale(1.1);
 }
 
 @media (max-width: 640px) {
   .footer-content {
     flex-direction: column;
     text-align: center;
+    padding: 20px 16px;
+  }
+
+  .github-link {
+    width: 100%;
+    justify-content: center;
   }
 }

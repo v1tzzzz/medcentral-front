@@ -5,15 +5,28 @@ interface ProfileProps {
   nomeUsuario: string;
   irParaDashboard: () => void;
   onLogout: () => void;
+  irParaPerfil?: () => void;
+  irParaBaseConhecimento?: () => void;
+  irParaRastreamento?: () => void;
 }
 
-function Profile({ nomeUsuario, irParaDashboard, onLogout }: ProfileProps) {
+function Profile({ 
+  nomeUsuario, 
+  irParaDashboard, 
+  onLogout,
+  irParaPerfil,
+  irParaBaseConhecimento,
+  irParaRastreamento
+}: ProfileProps) {
   return (
     <div className="profile-container">
       <Navbar 
         nomeUsuario={nomeUsuario} 
-        irParaPerfil={() => {}} 
+        irParaPerfil={irParaPerfil || (() => {})} 
         onLogout={onLogout}
+        irParaDashboard={irParaDashboard}
+        irParaBaseConhecimento={irParaBaseConhecimento}
+        irParaRastreamento={irParaRastreamento}
       />
       
       <main className="profile-main">

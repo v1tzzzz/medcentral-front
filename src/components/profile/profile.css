@@ -16,20 +16,32 @@
   animation: fadeIn 0.4s ease-out;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .btn-voltar {
   background: transparent;
-  color: #667eea;
+  color: var(--primary-blue);
   border: none;
   padding: 8px 0;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
   margin-bottom: 24px;
-  transition: opacity 0.2s;
+  transition: all 0.3s ease;
 }
 
 .btn-voltar:hover {
-  opacity: 0.7;
+  color: var(--darker-blue);
+  transform: translateX(-4px);
 }
 
 .profile-card {
@@ -44,12 +56,12 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--gradient-primary);
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 24px;
-  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 8px 16px rgba(37, 151, 254, 0.3);
 }
 
 .profile-avatar span {
@@ -78,7 +90,14 @@
   padding: 16px;
   background: #f7fafc;
   border-radius: 8px;
-  border-left: 4px solid #667eea;
+  border-left: 4px solid var(--primary-blue);
+  transition: all 0.3s ease;
+}
+
+.info-item:hover {
+  background: #edf2f7;
+  border-left-color: var(--darker-blue);
+  transform: translateX(4px);
 }
 
 .info-label {
@@ -93,7 +112,7 @@
 }
 
 .btn-editar {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--gradient-primary);
   color: white;
   border: none;
   padding: 12px 32px;
@@ -101,17 +120,34 @@
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: all 0.3s ease;
 }
 
 .btn-editar:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 8px 16px rgba(37, 151, 254, 0.3);
 }
 
 @media (max-width: 640px) {
+  .profile-main {
+    padding: 24px 16px;
+  }
+
   .profile-card {
     padding: 32px 24px;
+  }
+
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profile-avatar span {
+    font-size: 40px;
+  }
+
+  .profile-card h2 {
+    font-size: 24px;
   }
   
   .info-item {
