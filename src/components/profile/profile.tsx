@@ -63,10 +63,11 @@ function Profile({
                 <span className="info-value">01/01/1990</span>
               </div>
             </div>
-            
+            {/*}
             <button className="btn-editar">
               Editar Perfil
             </button>
+            */}
           </div>
         </div>
       </main>
