@@ -1,13 +1,9 @@
-import Navbar from '../navbar/navbar';
+import Navbar from '../../../components/navbar/navbar';
 import './profile.css';
 
 interface ProfileProps {
   nomeUsuario: string;
-  irParaDashboard: () => void;
   onLogout: () => void;
-  irParaPerfil?: () => void;
-  irParaBaseConhecimento?: () => void;
-  irParaRastreamento?: () => void;
 }
 
 function Profile({ 

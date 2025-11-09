@@ -1,0 +1,13 @@
+[vw] .active {
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 50% !important;
+  }
+  
+  [vw] [vw-access-button] .access-button {
+    border-radius: 50% !important;
+  }
+  
+  [vw] [vw-plugin-wrapper] .vw-plugin-top-wrapper {
+    display: none !important;
+  }

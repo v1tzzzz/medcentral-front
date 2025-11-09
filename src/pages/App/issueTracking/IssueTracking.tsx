@@ -1,14 +1,10 @@
 import { useState, useEffect } from 'react';
-import Navbar from '../navbar/navbar';
+import Navbar from '../../../components/navbar/navbar';
 import './issueTracking.css';
 
 interface IssueTrackingProps {
   nomeUsuario: string;
-  irParaPerfil: () => void;
   onLogout: () => void;
-  irParaDashboard?: () => void;
-  irParaBaseConhecimento?: () => void;
-  irParaRastreamento?: () => void;
 }
 
 interface ProblemaData {

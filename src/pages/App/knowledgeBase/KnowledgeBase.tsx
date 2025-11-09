@@ -1,14 +1,10 @@
 import { useState } from 'react';
-import Navbar from '../navbar/navbar';
+import Navbar from '../../../components/navbar/navbar';
 import './knowledgeBase.css';
 
 interface KnowledgeBaseProps {
   nomeUsuario: string;
-  irParaPerfil: () => void;
   onLogout: () => void;
-  irParaDashboard?: () => void;
-  irParaBaseConhecimento?: () => void;
-  irParaRastreamento?: () => void;
 }
 
 interface Documento {
