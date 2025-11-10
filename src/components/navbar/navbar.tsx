@@ -44,7 +44,7 @@ function Navbar({ nomeUsuario, onLogout }: NavbarProps) {
           style={{ cursor: 'pointer' }}
         >
           <img 
-            src="../../../public/LOGO-MEDCENTRAL.png" 
+            src="/LOGO-MEDCENTRAL.png" 
             alt="MedCentral Logo" 
             className="navbar-logo"
           />
