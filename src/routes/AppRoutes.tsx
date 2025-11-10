@@ -4,9 +4,9 @@ import { useState } from 'react';
 // Pages
 import Landing from '../pages/Landing/Landing';
 import Login from '../pages/Auth/Login';
-import PatientDashboard from '../pages/App/Patient/dashboard/Dashboard';
-import PatientProfile from '../pages/App/Patient/profile/Profile';
-import PatientKnowledgeBase from '../pages/App/Patient/knowledgeBase/KnowledgeBase';
+import PatientDashboard from '../pages/App/Paciente/dashboard/Dashboard';
+import PatientProfile from '../pages/App/Paciente/profile/Profile';
+import PatientKnowledgeBase from '../pages/App/Paciente/knowledgeBase/KnowledgeBase';
 import AdminIssueTracking from '../pages/App/Admin/issueTracking/IssueTracking';
 import ClinicDashboard from '../pages/App/Clinic/Dashboard/ClinicDashboard';
 
