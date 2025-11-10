@@ -8,7 +8,7 @@ import Login from './pages/Auth/Login';
 // Patient Pages
 import PatientDashboard from './pages/App/Patient/dashboard/Dashboard';
 import Profile from './pages/App/Patient/profile/Profile';
-import KnowledgeBase from './pages/App/Patient/KnowledgeBase/KnowledgeBase';
+import KnowledgeBase from './pages/App/Patient/knowledgeBase/KnowledgeBase';
 
 // Clinic Pages
 import ClinicDashboard from './pages/App/Clinic/Dashboard/ClinicDashboard';
