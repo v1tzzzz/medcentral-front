@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import VLibras from '../../components/vlibras/VLibras';
 import './landing.css';
 
 function Landing() {
@@ -10,7 +11,7 @@ function Landing() {
       <nav className="landing-navbar">
         <div className="landing-navbar-content">
           <div className="landing-logo">
-            <img src="/logo-sem-fundo.png" alt="MedCentral" />
+            <img src="../../../public/LOGO-MEDCENTRAL-SemFundo.png" alt="MedCentral" />
             <h1>MedCentral</h1>
           </div>
           <button 
@@ -45,7 +46,7 @@ function Landing() {
             </button>
             <button 
               className="btn-secondary-large"
-              onClick={() => navigate('/clinica/login')}
+              onClick={() => navigate('/login')}
             >
               <span className="btn-icon">🏥</span>
               Sou Clínica
@@ -164,26 +165,26 @@ function Landing() {
             <h4>Pacientes</h4>
             <ul>
               <li><a href="/login">Login</a></li>
-              <li><a href="/cadastro">Cadastro</a></li>
-              <li><a href="/ajuda">Ajuda</a></li>
+              <li><a href="/login">Cadastro</a></li>
+              <li><a href="/">Início</a></li>
             </ul>
           </div>
           
           <div className="footer-section">
             <h4>Clínicas</h4>
             <ul>
-              <li><a href="/clinica/login">Login</a></li>
-              <li><a href="/clinica/cadastro">Cadastro</a></li>
-              <li><a href="/clinica/planos">Planos</a></li>
+              <li><a href="/login">Login</a></li>
+              <li><a href="/login">Cadastro</a></li>
+              <li><a href="/">Planos</a></li>
             </ul>
           </div>
           
           <div className="footer-section">
             <h4>Empresa</h4>
             <ul>
-              <li><a href="/sobre">Sobre</a></li>
-              <li><a href="/contato">Contato</a></li>
-              <li><a href="/privacidade">Privacidade</a></li>
+              <li><a href="/">Sobre</a></li>
+              <li><a href="/">Contato</a></li>
+              <li><a href="https://github.com/v1tzzzz/medcentral-front" target="_blank" rel="noopener noreferrer">GitHub</a></li>
             </ul>
           </div>
         </div>
@@ -192,9 +193,11 @@ function Landing() {
           <p>© 2025 MedCentral. Todos os direitos reservados.</p>
         </div>
       </footer>
+
+      {/* VLibras - IMPORTANTE: Incluído na landing page */}
+      <VLibras />
     </div>
   );
 }
 
 export default Landing;
-

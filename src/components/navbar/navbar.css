@@ -1,167 +1,255 @@
-/* styles/navbar.css */
+/* ===== NAVBAR COMPONENT STYLES ===== */
+/* Este arquivo contém APENAS os estilos da navbar das páginas internas */
 
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.8rem 2rem;
-  background-color: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  z-index: 100;
   height: 70px;
 }
 
 .navbar-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  gap: 32px;
+}
+
+/* Logo Section */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  transition: opacity 0.3s ease;
+}
+
+.navbar-brand:hover {
+  opacity: 0.8;
 }
 
 .navbar-logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-decoration: none;
-  color: var(--primary-blue);
-}
-
-.navbar-logo img {
   height: 40px;
   width: auto;
 }
 
-.navbar-logo h1 {
-  font-size: 1.5rem;
+.navbar-title {
+  font-size: 24px;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-weight: 700;
   margin: 0;
+  white-space: nowrap;
 }
 
+/* Navigation Menu */
 .navbar-menu {
   display: flex;
-  gap: 1.5rem;
   align-items: center;
+  gap: 8px;
+  flex: 1;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-.navbar-menu-item {
-  text-decoration: none;
-  color: var(--text-primary);
-  font-weight: 600;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  transition: background-color 0.3s, color 0.3s;
+.navbar-menu::-webkit-scrollbar {
+  display: none;
 }
 
-.navbar-menu-item:hover {
-  background-color: var(--light-blue);
+.nav-link {
+  padding: 10px 20px;
+  background: transparent;
+  color: #4a5568;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-link:hover {
+  background: rgba(37, 151, 254, 0.1);
   color: var(--primary-blue);
 }
 
-.navbar-menu-item.active {
+.nav-link.active {
   background: var(--gradient-primary);
   color: white;
-  box-shadow: 0 2px 8px rgba(63, 128, 235, 0.3);
+  box-shadow: 0 2px 8px rgba(37, 151, 254, 0.3);
 }
 
+/* User Section */
 .navbar-user {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 16px;
+  flex-shrink: 0;
 }
 
 .user-greeting {
-  font-weight: 600;
-  color: var(--text-secondary);
+  color: #1a202c;
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+  display: none;
 }
 
-.user-greeting span {
-  font-weight: 700;
+.btn-perfil {
+  padding: 10px 20px;
+  background: rgba(37, 151, 254, 0.1);
   color: var(--primary-blue);
-}
-
-.btn-profile,
-.btn-logout {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1.2rem;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
+  font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.btn-profile {
-  background-color: var(--light-blue);
-  color: var(--primary-blue);
-}
-
-.btn-profile:hover {
-  background-color: var(--primary-blue);
+.btn-perfil:hover {
+  background: var(--primary-blue);
   color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 151, 254, 0.3);
 }
 
 .btn-logout {
-  background-color: #fde2e2;
-  color: #c53030;
+  padding: 10px 20px;
+  background: transparent;
+  color: #ef4444;
+  border: 2px solid #ef4444;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .btn-logout:hover {
-  background-color: #c53030;
+  background: #ef4444;
   color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
 }
 
-/* Mobile Responsive */
-.navbar-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  color: var(--primary-blue);
+/* CRÍTICO: Espaçamento para conteúdo não sobrepor navbar */
+/* Aplicar nas páginas que usam navbar */
+.dashboard-container,
+.profile-container,
+.knowledge-base-container,
+.issue-tracking-container,
+.clinic-dashboard-container {
+  padding-top: 70px; /* Altura da navbar */
 }
 
-@media (max-width: 992px) {
-  .navbar-menu {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    right: 0;
-    background-color: #fff;
-    padding: 1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+/* Para conteúdo principal adicional */
+.dashboard-main,
+.profile-main,
+.knowledge-base-main,
+.issue-tracking-main {
+  min-height: calc(100vh - 70px);
+}
 
-  .navbar-menu.open {
-    display: flex;
-  }
-
-  .navbar-toggle {
+/* Responsive Design */
+@media (min-width: 768px) {
+  .user-greeting {
     display: block;
+  }
+}
+
+@media (max-width: 968px) {
+  .navbar {
+    height: auto;
+    min-height: 70px;
+  }
+
+  .navbar-content {
+    flex-wrap: wrap;
+    padding: 12px 16px;
+    gap: 12px;
+  }
+
+  .navbar-brand {
+    flex: 0 0 auto;
+  }
+
+  .navbar-menu {
+    flex: 0 0 100%;
+    order: 3;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 8px 0;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 8px;
   }
 
   .navbar-user {
-    gap: 0.8rem;
+    margin-left: auto;
   }
 
-  .user-greeting {
-    display: none; /* Hide greeting on smaller screens */
+  .nav-link {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .btn-perfil,
+  .btn-logout {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  /* Ajuste do espaçamento em mobile */
+  .dashboard-container,
+  .profile-container,
+  .knowledge-base-container,
+  .issue-tracking-container,
+  .clinic-dashboard-container {
+    padding-top: 140px; /* Altura aumentada da navbar em mobile */
   }
 }
 
-@media (max-width: 480px) {
-  .navbar {
-    padding: 0.8rem 1rem;
+@media (max-width: 640px) {
+  .navbar-title {
+    font-size: 20px;
   }
 
-  .navbar-logo h1 {
-    display: none; /* Hide title on very small screens */
+  .navbar-logo {
+    height: 32px;
+  }
+
+  .user-greeting {
+    display: none;
+  }
+
+  .btn-perfil,
+  .btn-logout {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .nav-link {
+    font-size: 13px;
   }
 }

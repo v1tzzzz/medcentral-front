@@ -4,10 +4,17 @@ import { useState } from 'react';
 // Pages
 import Landing from './pages/Landing/Landing';
 import Login from './pages/Auth/Login';
-import Dashboard from './pages/App/Dashboard/Dashboard';
-import Profile from './pages/App/Profile/Profile';
-import KnowledgeBase from './pages/App/KnowledgeBase/KnowledgeBase';
-import IssueTracking from './pages/App/IssueTracking/IssueTracking';
+
+// Patient Pages
+import PatientDashboard from './pages/App/Patient/Dashboard/Dashboard';
+import Profile from './pages/App/Patient/Profile/Profile';
+import KnowledgeBase from './pages/App/Patient/KnowledgeBase/KnowledgeBase';
+
+// Clinic Pages
+import ClinicDashboard from './pages/App/Clinic/Dashboard/ClinicDashboard';
+
+// Admin Pages
+import IssueTracking from './pages/App/Admin/IssueTracking/IssueTracking';
 
 // Components
 import Footer from './components/footer/footer';
@@ -40,15 +47,18 @@ function GlobalComponents() {
 function App() {
   const [usuario, setUsuario] = useState<{
     nome: string;
+    tipo: 'paciente' | 'clinica' | 'admin' | null;
     autenticado: boolean;
   }>({
     nome: '',
+    tipo: null,
     autenticado: false,
   });
 
-  const handleLogin = (nome: string) => {
+  const handleLogin = (nome: string, tipo: 'paciente' | 'clinica' | 'admin') => {
     setUsuario({
       nome,
+      tipo,
       autenticado: true,
     });
   };
@@ -56,8 +66,23 @@ function App() {
   const handleLogout = () => {
     setUsuario({
       nome: '',
+      tipo: null,
       autenticado: false,
     });
+  };
+
+  // Determina o dashboard correto baseado no tipo de usuário
+  const getDashboardRoute = () => {
+    switch (usuario.tipo) {
+      case 'paciente':
+        return '/app/patient/dashboard';
+      case 'clinica':
+        return '/app/clinic/dashboard';
+      case 'admin':
+        return '/app/admin/dashboard';
+      default:
+        return '/login';
+    }
   };
 
   return (
@@ -69,12 +94,12 @@ function App() {
           {/* Landing Page */}
           <Route path="/" element={<Landing />} />
 
-          {/* Login - Se já autenticado, redireciona para dashboard */}
+          {/* Login - Se já autenticado, redireciona para dashboard apropriado */}
           <Route
             path="/login"
             element={
               usuario.autenticado ? (
-                <Navigate to="/app/dashboard" replace />
+                <Navigate to={getDashboardRoute()} replace />
               ) : (
                 <Login onLogin={handleLogin} />
               )
@@ -83,67 +108,86 @@ function App() {
 
           {/* ===== ROTAS PRIVADAS - ÁREA DO PACIENTE ===== */}
           
-          {/* Dashboard */}
+          {/* Patient Dashboard */}
           <Route
-            path="/app/dashboard"
+            path="/app/patient/dashboard"
             element={
-              <PrivateRoute autenticado={usuario.autenticado}>
-                <Dashboard nomeUsuario={usuario.nome} onLogout={handleLogout} />
+              <PrivateRoute autenticado={usuario.autenticado && usuario.tipo === 'paciente'}>
+                <PatientDashboard nomeUsuario={usuario.nome} onLogout={handleLogout} />
               </PrivateRoute>
             }
           />
 
-          {/* Perfil */}
+          {/* Patient Profile */}
           <Route
-            path="/app/perfil"
+            path="/app/patient/perfil"
             element={
-              <PrivateRoute autenticado={usuario.autenticado}>
+              <PrivateRoute autenticado={usuario.autenticado && usuario.tipo === 'paciente'}>
                 <Profile nomeUsuario={usuario.nome} onLogout={handleLogout} />
               </PrivateRoute>
             }
           />
 
-          {/* Base de Conhecimento */}
+          {/* Knowledge Base */}
           <Route
-            path="/app/ajuda"
+            path="/app/patient/ajuda"
             element={
-              <PrivateRoute autenticado={usuario.autenticado}>
+              <PrivateRoute autenticado={usuario.autenticado && usuario.tipo === 'paciente'}>
                 <KnowledgeBase nomeUsuario={usuario.nome} onLogout={handleLogout} />
               </PrivateRoute>
             }
           />
 
-          {/* Rastreamento */}
+          {/* ===== ROTAS PRIVADAS - ÁREA DA CLÍNICA ===== */}
+          
+          {/* Clinic Dashboard */}
           <Route
-            path="/app/rastreamento"
+            path="/app/clinic/dashboard"
             element={
-              <PrivateRoute autenticado={usuario.autenticado}>
+              <PrivateRoute autenticado={usuario.autenticado && usuario.tipo === 'clinica'}>
+                <ClinicDashboard nomeUsuario={usuario.nome} onLogout={handleLogout} />
+              </PrivateRoute>
+            }
+          />
+
+          {/* ===== ROTAS PRIVADAS - ÁREA DO ADMIN ===== */}
+          
+          {/* Admin Dashboard */}
+          <Route
+            path="/app/admin/dashboard"
+            element={
+              <PrivateRoute autenticado={usuario.autenticado && usuario.tipo === 'admin'}>
                 <IssueTracking nomeUsuario={usuario.nome} onLogout={handleLogout} />
               </PrivateRoute>
             }
           />
 
-          {/* Redirect /app para /app/dashboard */}
+          {/* Issue Tracking (Admin) */}
+          <Route
+            path="/app/admin/issue-tracking"
+            element={
+              <PrivateRoute autenticado={usuario.autenticado && usuario.tipo === 'admin'}>
+                <IssueTracking nomeUsuario={usuario.nome} onLogout={handleLogout} />
+              </PrivateRoute>
+            }
+          />
+
+          {/* Redirect /app para dashboard apropriado */}
           <Route
             path="/app"
             element={
               <Navigate
-                to={usuario.autenticado ? '/app/dashboard' : '/login'}
+                to={usuario.autenticado ? getDashboardRoute() : '/login'}
                 replace
               />
             }
           />
 
-          {/* ===== ROTAS DA CLÍNICA (Futuro) ===== */}
-          <Route
-            path="/clinica/login"
-            element={
-              <div style={{ padding: '100px', textAlign: 'center' }}>
-                <h1>Área da Clínica</h1>
-                <p>Em desenvolvimento...</p>
-              </div>
-            }
-          />
+          {/* Backward compatibility routes */}
+          <Route path="/app/dashboard" element={<Navigate to="/app/patient/dashboard" replace />} />
+          <Route path="/app/perfil" element={<Navigate to="/app/patient/perfil" replace />} />
+          <Route path="/app/ajuda" element={<Navigate to="/app/patient/ajuda" replace />} />
+          <Route path="/app/rastreamento" element={<Navigate to="/app/admin/issue-tracking" replace />} />
 
           {/* ===== 404 - PÁGINA NÃO ENCONTRADA ===== */}
           <Route

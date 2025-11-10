@@ -1,20 +1,19 @@
+import { useEffect } from 'react';
 
-import React, { useEffect } from 'react';
-import './vlibras.css';
-
-const VLibras: React.FC = () => {
+const VLibras = () => {
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://vlibras.gov.br/app/vlibras-plugin.js';
     script.async = true;
-    script.onload = () => {
-      new (window as any).VLibras.Widget('https://vlibras.gov.br/app');
-    };
     document.body.appendChild(script);
 
-    return () => {
-      document.body.removeChild(script);
+    script.onload = () => {
+      if (window.VLibras) {
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+      }
     };
+
+    return () => script.remove();
   }, []);
 
   return (
@@ -28,3 +27,4 @@ const VLibras: React.FC = () => {
 };
 
 export default VLibras;
+

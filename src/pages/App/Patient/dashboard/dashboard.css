@@ -60,8 +60,10 @@
 }
 
 .btn-novo:hover {
+  background: var(--darker-blue);
   transform: translateY(-2px);
   box-shadow: 0 8px 16px rgba(37, 151, 254, 0.3);
+  color: white;
 }
 
 .agendamentos-grid {
@@ -133,8 +135,10 @@
 }
 
 .empty-state .btn-primary:hover {
+  background: var(--darker-blue);
   transform: translateY(-2px);
   box-shadow: 0 8px 16px rgba(37, 151, 254, 0.3);
+  color: white;
 }
 
 /* Botão de excluir no card */
@@ -325,8 +329,10 @@
 }
 
 .btn-confirmar:hover {
+  background: var(--darker-blue);
   transform: translateY(-2px);
   box-shadow: 0 8px 16px rgba(37, 151, 254, 0.3);
+  color: white;
 }
 
 @media (max-width: 768px) {
