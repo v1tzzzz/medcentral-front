@@ -11,7 +11,7 @@ function Landing() {
       <nav className="landing-navbar">
         <div className="landing-navbar-content">
           <div className="landing-logo">
-            <img src="../../../public/LOGO-MEDCENTRAL-SemFundo.png" alt="MedCentral" />
+            <img src="/LOGO-MEDCENTRAL-SemFundo.png" alt="MedCentral" />
             <h1>MedCentral</h1>
           </div>
           <button 
