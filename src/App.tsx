@@ -6,9 +6,9 @@ import Landing from './pages/Landing/Landing';
 import Login from './pages/Auth/Login';
 
 // Patient Pages
-import PatientDashboard from './pages/App/Patient/dashboard/Dashboard';
-import Profile from './pages/App/Patient/profile/Profile';
-import KnowledgeBase from './pages/App/Patient/knowledgeBase/KnowledgeBase';
+import PatientDashboard from './pages/App/Patient/Dashboard/Dashboard';
+import Profile from './pages/App/Patient/Profile/Profile';
+import KnowledgeBase from './pages/App/Patient/KnowledgeBase/KnowledgeBase';
 
 // Clinic Pages
 import ClinicDashboard from './pages/App/Clinic/Dashboard/ClinicDashboard';
