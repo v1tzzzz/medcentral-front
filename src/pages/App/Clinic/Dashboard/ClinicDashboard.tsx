@@ -232,7 +232,7 @@ function ClinicDashboard({ nomeUsuario, onLogout }: ClinicDashboardProps) {
               </button>
               <button className="action-btn">
                 <span className="action-icon">👤</span>
-                <span className="action-text">Adicionar Paciente</span>
+                <span className="action-text">Adicionar Médico</span>
               </button>
               <button className="action-btn">
                 <span className="action-icon">📊</span>
