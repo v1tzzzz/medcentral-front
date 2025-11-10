@@ -16,12 +16,8 @@ interface Agendamento {
 }
 
 function Dashboard({ 
-  nomeUsuario, 
-  irParaPerfil, 
+  nomeUsuario,
   onLogout,
-  irParaDashboard,
-  irParaBaseConhecimento,
-  irParaRastreamento
 }: DashboardProps) {
   const [agendamentos, setAgendamentos] = useState<Agendamento[]>([
     {
@@ -120,11 +116,7 @@ function Dashboard({
     <div className="dashboard-container">
       <Navbar 
         nomeUsuario={nomeUsuario} 
-        irParaPerfil={irParaPerfil}
         onLogout={onLogout}
-        irParaDashboard={irParaDashboard}
-        irParaBaseConhecimento={irParaBaseConhecimento}
-        irParaRastreamento={irParaRastreamento}
       />
       
       <main className="dashboard-main">

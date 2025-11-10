@@ -6,15 +6,15 @@ import Landing from './pages/Landing/Landing';
 import Login from './pages/Auth/Login';
 
 // Patient Pages
-import PatientDashboard from './pages/App/Patient/Dashboard/Dashboard';
-import Profile from './pages/App/Patient/Profile/Profile';
-import KnowledgeBase from './pages/App/Patient/KnowledgeBase/KnowledgeBase';
+import PatientDashboard from './pages/App/Patient/dashboard/Dashboard';
+import Profile from './pages/App/Patient/profile/Profile';
+import KnowledgeBase from './pages/App/Patient/knowledgeBase/KnowledgeBase';
 
 // Clinic Pages
 import ClinicDashboard from './pages/App/Clinic/Dashboard/ClinicDashboard';
 
 // Admin Pages
-import IssueTracking from './pages/App/Admin/IssueTracking/IssueTracking';
+import IssueTracking from './pages/App/Admin/issueTracking/IssueTracking';
 
 // Components
 import Footer from './components/footer/footer';
@@ -47,7 +47,7 @@ function GlobalComponents() {
 function App() {
   const [usuario, setUsuario] = useState<{
     nome: string;
-    tipo: 'paciente' | 'clinica' | 'admin' | null;
+    tipo: 'patient' | 'clinic' | 'admin' | null;
     autenticado: boolean;
   }>({
     nome: '',
@@ -55,7 +55,7 @@ function App() {
     autenticado: false,
   });
 
-  const handleLogin = (nome: string, tipo: 'paciente' | 'clinica' | 'admin') => {
+  const handleLogin = (nome: string, tipo: 'patient' | 'clinic' | 'admin') => {
     setUsuario({
       nome,
       tipo,
@@ -74,9 +74,9 @@ function App() {
   // Determina o dashboard correto baseado no tipo de usuário
   const getDashboardRoute = () => {
     switch (usuario.tipo) {
-      case 'paciente':
+      case 'patient':
         return '/app/patient/dashboard';
-      case 'clinica':
+      case 'clinic':
         return '/app/clinic/dashboard';
       case 'admin':
         return '/app/admin/dashboard';
@@ -112,7 +112,7 @@ function App() {
           <Route
             path="/app/patient/dashboard"
             element={
-              <PrivateRoute autenticado={usuario.autenticado && usuario.tipo === 'paciente'}>
+              <PrivateRoute autenticado={usuario.autenticado && usuario.tipo === 'patient'}>
                 <PatientDashboard nomeUsuario={usuario.nome} onLogout={handleLogout} />
               </PrivateRoute>
             }
@@ -122,7 +122,7 @@ function App() {
           <Route
             path="/app/patient/perfil"
             element={
-              <PrivateRoute autenticado={usuario.autenticado && usuario.tipo === 'paciente'}>
+              <PrivateRoute autenticado={usuario.autenticado && usuario.tipo === 'patient'}>
                 <Profile nomeUsuario={usuario.nome} onLogout={handleLogout} />
               </PrivateRoute>
             }
@@ -132,7 +132,7 @@ function App() {
           <Route
             path="/app/patient/ajuda"
             element={
-              <PrivateRoute autenticado={usuario.autenticado && usuario.tipo === 'paciente'}>
+              <PrivateRoute autenticado={usuario.autenticado && usuario.tipo === 'patient'}>
                 <KnowledgeBase nomeUsuario={usuario.nome} onLogout={handleLogout} />
               </PrivateRoute>
             }
@@ -144,7 +144,7 @@ function App() {
           <Route
             path="/app/clinic/dashboard"
             element={
-              <PrivateRoute autenticado={usuario.autenticado && usuario.tipo === 'clinica'}>
+              <PrivateRoute autenticado={usuario.autenticado && usuario.tipo === 'clinic'}>
                 <ClinicDashboard nomeUsuario={usuario.nome} onLogout={handleLogout} />
               </PrivateRoute>
             }

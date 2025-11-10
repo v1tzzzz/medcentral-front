@@ -13,12 +13,8 @@ interface ProblemaData {
 }
 
 function IssueTracking({ 
-  nomeUsuario, 
-  irParaPerfil, 
+  nomeUsuario,
   onLogout,
-  irParaDashboard,
-  irParaBaseConhecimento,
-  irParaRastreamento
 }: IssueTrackingProps) {
   const [simulacaoAtiva, setSimulacaoAtiva] = useState(false);
   const [satisfacao, setSatisfacao] = useState(87);
@@ -80,11 +76,7 @@ function IssueTracking({
     <div className="issue-tracking-container">
       <Navbar 
         nomeUsuario={nomeUsuario} 
-        irParaPerfil={irParaPerfil}
         onLogout={onLogout}
-        irParaDashboard={irParaDashboard}
-        irParaBaseConhecimento={irParaBaseConhecimento}
-        irParaRastreamento={irParaRastreamento}
       />
       
       <main className="issue-tracking-main">

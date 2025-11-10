@@ -17,13 +17,9 @@ interface Documento {
   tamanho: string;
 }
 
-function KnowledgeBase({ 
-  nomeUsuario, 
-  irParaPerfil, 
+function KnowledgeBase({
+  nomeUsuario,
   onLogout,
-  irParaDashboard,
-  irParaBaseConhecimento,
-  irParaRastreamento
 }: KnowledgeBaseProps) {
   const [categoriaFiltro, setCategoriaFiltro] = useState<string>('Todos');
   const [buscaTexto, setBuscaTexto] = useState<string>('');
@@ -102,11 +98,7 @@ function KnowledgeBase({
     <div className="knowledge-base-container">
       <Navbar 
         nomeUsuario={nomeUsuario} 
-        irParaPerfil={irParaPerfil}
         onLogout={onLogout}
-        irParaDashboard={irParaDashboard}
-        irParaBaseConhecimento={irParaBaseConhecimento}
-        irParaRastreamento={irParaRastreamento}
       />
       
       <main className="knowledge-base-main">

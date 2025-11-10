@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../../../../components/navbar/navbar';
 import './profile.css';
 
@@ -6,28 +7,19 @@ interface ProfileProps {
   onLogout: () => void;
 }
 
-function Profile({ 
-  nomeUsuario, 
-  irParaDashboard, 
-  onLogout,
-  irParaPerfil,
-  irParaBaseConhecimento,
-  irParaRastreamento
-}: ProfileProps) {
+function Profile({ nomeUsuario, onLogout }: ProfileProps) {
+  const navigate = useNavigate();
+
   return (
     <div className="profile-container">
       <Navbar 
         nomeUsuario={nomeUsuario} 
-        irParaPerfil={irParaPerfil || (() => {})} 
         onLogout={onLogout}
-        irParaDashboard={irParaDashboard}
-        irParaBaseConhecimento={irParaBaseConhecimento}
-        irParaRastreamento={irParaRastreamento}
       />
       
       <main className="profile-main">
         <div className="profile-content">
-          <button onClick={irParaDashboard} className="btn-voltar">
+          <button onClick={() => navigate('/app/patient/dashboard')} className="btn-voltar">
             ← Voltar ao Dashboard
           </button>
           

@@ -3,17 +3,17 @@ import { useNavigate } from 'react-router-dom';
 import './login.css';
 
 interface LoginProps {
-  onLogin: (nome: string, tipo: 'paciente' | 'clinica' | 'admin') => void;
+  onLogin: (nome: string, tipo: 'patient' | 'clinic' | 'admin') => void;
 }
 
 // Credenciais fake para teste
 const CREDENCIAIS_FAKE = {
-  paciente: {
+  patient: {
     email: 'paciente@medcentral.com',
     senha: 'paciente123',
     nome: 'João Silva'
   },
-  clinica: {
+  clinic: {
     email: 'clinica@medcentral.com',
     senha: 'clinica123',
     nome: 'Clínica São Paulo'
@@ -27,7 +27,7 @@ const CREDENCIAIS_FAKE = {
 
 function Login({ onLogin }: LoginProps) {
   const navigate = useNavigate();
-  const [tipoUsuario, setTipoUsuario] = useState<'paciente' | 'clinica' | 'admin'>('paciente');
+  const [tipoUsuario, setTipoUsuario] = useState<'patient' | 'clinic' | 'admin'>('patient');
   const [email, setEmail] = useState<string>('');
   const [senha, setSenha] = useState<string>('');
   const [erro, setErro] = useState<string>('');
@@ -76,9 +76,9 @@ function Login({ onLogin }: LoginProps) {
         <div className="user-type-selector">
           <button
             type="button"
-            className={`type-btn ${tipoUsuario === 'paciente' ? 'active' : ''}`}
+            className={`type-btn ${tipoUsuario === 'patient' ? 'active' : ''}`}
             onClick={() => {
-              setTipoUsuario('paciente');
+              setTipoUsuario('patient');
               setErro('');
               setEmail('');
               setSenha('');
@@ -89,9 +89,9 @@ function Login({ onLogin }: LoginProps) {
           </button>
           <button
             type="button"
-            className={`type-btn ${tipoUsuario === 'clinica' ? 'active' : ''}`}
+            className={`type-btn ${tipoUsuario === 'clinic' ? 'active' : ''}`}
             onClick={() => {
-              setTipoUsuario('clinica');
+              setTipoUsuario('clinic');
               setErro('');
               setEmail('');
               setSenha('');
@@ -161,7 +161,7 @@ function Login({ onLogin }: LoginProps) {
           </div>
 
           <button type="submit" className="btn-primary">
-            Entrar como {tipoUsuario === 'paciente' ? 'Paciente' : tipoUsuario === 'clinica' ? 'Clínica' : 'Admin'}
+            Entrar como {tipoUsuario === 'patient' ? 'Paciente' : tipoUsuario === 'clinic' ? 'Clínica' : 'Admin'}
           </button>
         </form>
 
@@ -176,7 +176,7 @@ function Login({ onLogin }: LoginProps) {
             Preencher credenciais de teste
           </button>
           <div className="credentials-info">
-            <p><strong>{tipoUsuario === 'paciente' ? 'Paciente' : tipoUsuario === 'clinica' ? 'Clínica' : 'Admin'}:</strong></p>
+            <p><strong>{tipoUsuario === 'patient' ? 'Paciente' : tipoUsuario === 'clinic' ? 'Clínica' : 'Admin'}:</strong></p>
             <p>Email: {CREDENCIAIS_FAKE[tipoUsuario].email}</p>
             <p>Senha: {CREDENCIAIS_FAKE[tipoUsuario].senha}</p>
           </div>
