@@ -287,23 +287,29 @@
 /* Responsividade */
 /* Alterado para arrumar o problemas de padding no celular - kkkk */
 
+/* MOBILE */
 @media (max-width: 480px) {
   .login-container {
     padding: 16px;
-    align-items: flex-start; /* sobe o conteúdo */
-    padding-top: 60px; /* espaço pro botão */
-  }
-
-  .btn-voltar-landing {
-    position: static;
-    width: 100%;
-    margin-bottom: 16px;
-    justify-content: center;
+    display: flex;
+    flex-direction: column; /* empilha tudo */
+    align-items: stretch;
   }
 
   .login-card {
     width: 100%;
     max-width: 100%;
     padding: 24px 20px;
+    margin-bottom: 16px; /* espaço pro botão abaixo */
+  }
+
+  .btn-voltar-landing {
+    position: static; /* tira do absolute */
+    width: 100%;
+    display: block;
+    margin: 0;
+    justify-content: center;
+    text-align: center;
   }
 }
+
