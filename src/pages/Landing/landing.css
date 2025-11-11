@@ -68,9 +68,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 90px 5% 80px; /* REDUZIDO de 120px para 90px */
+  padding: 90px 5% 80px; 
   background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-  gap: 60px; /* REDUZIDO de 80px para 60px */
+  gap: 60px; 
   position: relative;
   overflow: hidden;
 }
@@ -130,11 +130,11 @@
 /* BOTÕES NA MESMA LINHA COM MARGEM ADEQUADA */
 .hero-buttons {
   display: flex;
-  flex-direction: row; /* FORÇAR LINHA */
-  gap: 16px; /* ESPAÇAMENTO ENTRE BOTÕES */
+  flex-direction: row; 
+  gap: 16px; 
   flex-wrap: wrap;
-  margin-bottom: 40px; /* REDUZIDO de 60px para 40px */
-  padding: 0 8px; /* MARGEM DAS BORDAS */
+  margin-bottom: 40px; 
+  padding: 0 8px; 
 }
 
 .btn-primary-large,
@@ -232,17 +232,8 @@
 
 /* IMPORTANTE: Animação float APENAS no hover */
 .hero-card:hover {
-  animation: float 3s ease-in-out infinite;
+  transform: translateY(-20px);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
 }
 
 .card-1 {
