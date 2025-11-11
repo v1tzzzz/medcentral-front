@@ -61,10 +61,6 @@ function Login({ onLogin }: LoginProps) {
 
   return (
     <div className="login-container">
-      {/* Botão Voltar */}
-      <button onClick={handleVoltar} className="btn-voltar-landing">
-        ← Voltar para Início
-      </button>
 
       <div className="login-card">
         <div className="login-header">
@@ -182,6 +178,10 @@ function Login({ onLogin }: LoginProps) {
           </div>
         </div>
       </div>
+      {/* Botão Voltar */}
+      <button onClick={handleVoltar} className="btn-voltar-landing">
+        ← Voltar para Início
+      </button>
     </div>
   );
 }
