@@ -45,21 +45,27 @@ A aplicação se adapta automaticamente a diferentes tamanhos de tela:
 - Tablet
 - Mobile
 
+### 
+
+Requisitos: Utilizar um navegador 
+> NOTA:
+>   
+> Os navegadores recomendados são os baseado em _Chromium_ como, **Google Chrome**, **Microsoft Edge**, **Brave** etc.
 
 # Dev 
 Alysson Vitor (v1tzzzz)
 
 # Grupo
-Ana Claudia Ferreira de Souza
-Adriana de Oliveira Sabino
-Bruno Teixeira 
-Júlia Cristina de Arruda
+Ana Claudia Ferreira de Souza<br>
+Adriana de Oliveira Sabino<br>
+Bruno Teixeira<br>
+Júlia Cristina de Arruda <br>
 
 ## Links
 
 Repositório: github.com/v1tzzzz/medcentral-front
 FATEC Barueri: fatecbarueri.edu.br
-Site oficial: (medcentral.com.br)[https://medcentral-front.vercel.app]
+Site oficial: [medcentral.com.br](https://medcentral-front.vercel.app)
 
 
 © 2025 MedCentral - Todos os direitos reservados
