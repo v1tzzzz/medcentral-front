@@ -1,0 +1,21 @@
+{
+    "headers": [
+        {
+            "source": "/(.*)",
+            "headers": [
+                {
+                    "key": "Content-Security-Police",
+                    "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vlibras.gov.br; style-src 'self' 'unsafe-inline' https://vlibras.gov.br; img-src 'self' data: https: https://vlibras.gov.br; font-src 'self' data: https://vlibras.gov.br; connect-src 'self' https://vlibras.gov.br wss://vlibras.gov.br; frame-src https://vlibras.gov.br; worker-src 'self' blob:; child-src 'self' blob:; object-src 'none';"
+                },
+                {
+                    "key": "Cross-Origin-Embedder-Policy",
+                    "value": "unsafe-none"
+                },
+                {
+                    "key": "Cross-Origin-Opener-Policy",
+                    "value": "same-origin-allow-popups"
+                }
+            ]
+        }
+    ]
+}
