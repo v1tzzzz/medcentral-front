@@ -1,12 +1,11 @@
 import { useNavigate } from 'react-router-dom';
-import VLibras from '../../components/vlibras/VLibras';
 import './landing.css';
 
 function Landing() {
   const navigate = useNavigate();
 
   return (
-    <div className="landing-container">
+    <><div className="landing-container">
       {/* Navbar Simples */}
       <nav className="landing-navbar">
         <div className="landing-navbar-content">
@@ -14,7 +13,7 @@ function Landing() {
             <img src="/LOGO-MEDCENTRAL-SemFundo.png" alt="MedCentral" />
             <h1>MedCentral</h1>
           </div>
-          <button 
+          <button
             className="btn-login"
             onClick={() => navigate('/login')}
           >
@@ -35,16 +34,16 @@ function Landing() {
             Encontre médicos, agende consultas e gerencie sua saúde em um só lugar.
             Rápido, fácil e seguro.
           </p>
-          
+
           <div className="hero-buttons">
-            <button 
+            <button
               className="btn-primary-large"
               onClick={() => navigate('/login')}
             >
               <span className="btn-icon">👤</span>
               Sou Paciente
             </button>
-            <button 
+            <button
               className="btn-secondary-large"
               onClick={() => navigate('/login')}
             >
@@ -76,7 +75,7 @@ function Landing() {
             <p>Dr. João Silva</p>
             <p className="card-time">Hoje, 14:00</p>
           </div>
-          
+
           <div className="hero-card card-2">
             <div className="card-icon">✅</div>
             <h3>Confirmado</h3>
@@ -99,20 +98,20 @@ function Landing() {
           <h2>Como funciona</h2>
           <p>Agendar uma consulta nunca foi tão fácil</p>
         </div>
-        
+
         <div className="features-grid">
           <div className="feature-card">
             <div className="feature-icon">📅</div>
             <h3>Agende Online</h3>
             <p>Escolha data e horário que melhor se adequam à sua rotina. Sem ligações ou espera.</p>
           </div>
-          
+
           <div className="feature-card">
             <div className="feature-icon">🔍</div>
             <h3>Encontre Especialistas</h3>
             <p>Busque por especialidade, localização ou plano de saúde. Centenas de médicos disponíveis.</p>
           </div>
-          
+
           <div className="feature-card">
             <div className="feature-icon">📱</div>
             <h3>Gerencie Tudo</h3>
@@ -144,7 +143,7 @@ function Landing() {
         <div className="cta-content">
           <h2>Pronto para começar?</h2>
           <p>Junte-se a milhares de pessoas que já cuidam da saúde com o MedCentral</p>
-          <button 
+          <button
             className="btn-cta"
             onClick={() => navigate('/login')}
           >
@@ -160,7 +159,7 @@ function Landing() {
             <h4>MedCentral</h4>
             <p>Sua saúde em primeiro lugar</p>
           </div>
-          
+
           <div className="footer-section">
             <h4>Pacientes</h4>
             <ul>
@@ -169,7 +168,7 @@ function Landing() {
               <li><a href="/">Início</a></li>
             </ul>
           </div>
-          
+
           <div className="footer-section">
             <h4>Clínicas</h4>
             <ul>
@@ -178,7 +177,7 @@ function Landing() {
               <li><a href="/">Planos</a></li>
             </ul>
           </div>
-          
+
           <div className="footer-section">
             <h4>Empresa</h4>
             <ul>
@@ -188,15 +187,14 @@ function Landing() {
             </ul>
           </div>
         </div>
-        
+
         <div className="footer-bottom">
           <p>© 2025 MedCentral. Todos os direitos reservados.</p>
         </div>
       </footer>
-
-      {/* VLibras - IMPORTANTE: Incluído na landing page */}
-      <VLibras />
     </div>
+  
+    </>
   );
 }
 

@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 
+
 // Pages
 import Landing from './pages/Landing/Landing';
 import Login from './pages/Auth/Login';
@@ -19,8 +20,8 @@ import IssueTracking from './pages/App/Admin/issueTracking/IssueTracking';
 // Components
 import Footer from './components/footer/footer';
 import ChatbotButton from './components/chatbot/ChatbotButton';
-import VLibras from './components/vlibras/VLibras';
 import PrivateRoute from './routes/PrivateRoute';
+import VlibrasContainer from './components/vlibras/VLibras';
 
 import './App.css';
 
@@ -31,7 +32,7 @@ function GlobalComponents() {
 
   // Não mostra footer/chatbot/vlibras na landing page (ela tem seu próprio footer)
   if (isLandingPage) {
-    return <VLibras />;
+    return <VlibrasContainer />;
   }
 
   // Mostra em todas as outras páginas
@@ -39,7 +40,6 @@ function GlobalComponents() {
     <>
       <Footer />
       <ChatbotButton />
-      <VLibras />
     </>
   );
 }
